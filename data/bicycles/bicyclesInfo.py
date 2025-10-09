@@ -13,7 +13,62 @@ class Data:
     events = [
         #             ------ 2022 ------
         
+        pd.Timestamp("2022-02-12"), # Feria automovil
+        pd.Timestamp("2022-02-13"), # Feria automovil
+        pd.Timestamp("2022-02-14"), # Feria automovil
+        pd.Timestamp("2022-02-15"), # Feria automovil
+        pd.Timestamp("2022-02-16"), # Feria automovil
+        pd.Timestamp("2022-02-17"), # Feria automovil
+        pd.Timestamp("2022-02-18"), # Feria automovil
+        pd.Timestamp("2022-02-19"), # Feria automovil
+        pd.Timestamp("2022-02-20"), # Feria automovil        
+        pd.Timestamp("2022-02-21"), # Feria automovil
         
+        pd.Timestamp("2022-05-28"), # Festival musica (Sueños)
+        pd.Timestamp("2022-05-29"), # Festival musica (Sueños)
+        
+        # No hubo NASCAR
+        
+        pd.Timestamp("2022-09-08"), # Taste of Chicago
+        pd.Timestamp("2022-09-09"), # Taste of Chicago
+        pd.Timestamp("2022-09-10"), # Taste of Chicago         
+        
+        pd.Timestamp("2022-07-15"), # Festival musica (Pitchfork Music) (cancelado en 2025)
+        pd.Timestamp("2022-07-16"), # Festival musica (Pitchfork Music) (cancelado en 2025)        
+        pd.Timestamp("2022-07-17"), # Festival musica (Pitchfork Music) (cancelado en 2025)  
+              
+        pd.Timestamp("2022-07-28"), # Festival musica (Lollapalooza) 
+        pd.Timestamp("2022-07-29"), # Festival musica (Lollapalooza) 
+        pd.Timestamp("2022-07-30"), # Festival musica (Lollapalooza) 
+        pd.Timestamp("2022-07-31"), # Festival musica (Lollapalooza) 
+                        
+        pd.Timestamp("2022-08-20"), # Exhibicion aerea (Chicago Air & Water Show) 
+        pd.Timestamp("2022-08-21"), # Exhibicion aerea (Chicago Air & Water Show)
+        
+        pd.Timestamp("2022-09-01"), # Festival musica (Chicafo jazz)
+        pd.Timestamp("2022-09-02"), # Festival musica (Chicafo jazz)
+        pd.Timestamp("2022-09-03"), # Festival musica (Chicafo jazz)
+        pd.Timestamp("2022-09-04"), # Festival musica (Chicafo jazz)
+        
+        pd.Timestamp("2022-09-16"), # Festival musica (Riot fest)
+        pd.Timestamp("2022-09-17"), # Festival musica (Riot fest)        
+        pd.Timestamp("2022-09-18"), # Festival musica (Riot fest)
+        
+        pd.Timestamp("2022-10-09"), # Maraton anual  
+        
+         
+        pd.Timestamp("2022-10-12"), # Festival cine (60th Chicago International Film Festival)                                
+        pd.Timestamp("2022-10-13"), # Festival cine (60th Chicago International Film Festival)                                
+        pd.Timestamp("2022-10-14"), # Festival cine (60th Chicago International Film Festival)                                
+        pd.Timestamp("2022-10-15"), # Festival cine (60th Chicago International Film Festival)                                
+        pd.Timestamp("2022-10-16"), # Festival cine (60th Chicago International Film Festival)                                
+        pd.Timestamp("2022-10-17"), # Festival cine (60th Chicago International Film Festival)                                
+        pd.Timestamp("2022-10-18"), # Festival cine (60th Chicago International Film Festival)                                
+        pd.Timestamp("2022-10-19"), # Festival cine (60th Chicago International Film Festival)                                
+        pd.Timestamp("2022-10-20"), # Festival cine (60th Chicago International Film Festival)                                
+        pd.Timestamp("2022-10-21"), # Festival cine (60th Chicago International Film Festival)                                
+        pd.Timestamp("2022-10-22"), # Festival cine (60th Chicago International Film Festival)  
+        pd.Timestamp("2022-10-23"), # Festival cine (60th Chicago International Film Festival)                                               
         
         #             ------ 2023 ------
         
@@ -60,18 +115,18 @@ class Data:
         
         pd.Timestamp("2023-10-08"), # Maraton anual  
         
-         pd.Timestamp("2023-10-11"), # Festival cine (60th Chicago International Film Festival)                                
-         pd.Timestamp("2023-10-12"), # Festival cine (60th Chicago International Film Festival)                                
-         pd.Timestamp("2023-10-13"), # Festival cine (60th Chicago International Film Festival)                                
-         pd.Timestamp("2023-10-14"), # Festival cine (60th Chicago International Film Festival)                                
-         pd.Timestamp("2023-10-15"), # Festival cine (60th Chicago International Film Festival)                                
-         pd.Timestamp("2023-10-16"), # Festival cine (60th Chicago International Film Festival)                                
-         pd.Timestamp("2023-10-17"), # Festival cine (60th Chicago International Film Festival)                                
-         pd.Timestamp("2023-10-18"), # Festival cine (60th Chicago International Film Festival)                                
-         pd.Timestamp("2023-10-19"), # Festival cine (60th Chicago International Film Festival)                                
-         pd.Timestamp("2023-10-20"), # Festival cine (60th Chicago International Film Festival)                                
-         pd.Timestamp("2023-10-21"), # Festival cine (60th Chicago International Film Festival)                                
-         pd.Timestamp("2023-10-22"), # Festival cine (60th Chicago International Film Festival)                                
+        pd.Timestamp("2023-10-11"), # Festival cine (60th Chicago International Film Festival)                                
+        pd.Timestamp("2023-10-12"), # Festival cine (60th Chicago International Film Festival)                                
+        pd.Timestamp("2023-10-13"), # Festival cine (60th Chicago International Film Festival)                                
+        pd.Timestamp("2023-10-14"), # Festival cine (60th Chicago International Film Festival)                                
+        pd.Timestamp("2023-10-15"), # Festival cine (60th Chicago International Film Festival)                                
+        pd.Timestamp("2023-10-16"), # Festival cine (60th Chicago International Film Festival)                                
+        pd.Timestamp("2023-10-17"), # Festival cine (60th Chicago International Film Festival)                                
+        pd.Timestamp("2023-10-18"), # Festival cine (60th Chicago International Film Festival)                                
+        pd.Timestamp("2023-10-19"), # Festival cine (60th Chicago International Film Festival)                                
+        pd.Timestamp("2023-10-20"), # Festival cine (60th Chicago International Film Festival)                                
+        pd.Timestamp("2023-10-21"), # Festival cine (60th Chicago International Film Festival)                                
+        pd.Timestamp("2023-10-22"), # Festival cine (60th Chicago International Film Festival)                                
         
         #             ------ 2024 ------
         

@@ -19,6 +19,8 @@ class WeatherAcq:
         
         print("Estadisticas del df:")
         print(df_result.describe())
+        print(df_result.head(10))
+        print(df_result.dtypes)
         
         return df_result   
         
@@ -31,11 +33,31 @@ class WeatherAcq:
         print(df.head(10))  
         
         # ------------------------------------------------------------------
+        # -------------------- Delete columns --------------------
+        print("\n\t\t --- Delete columns ---\n")        
+        
+        n_ref = df["STATION"].count()# PAra mas adelante
+
+        cols = [
+            "DATE",
+            "temperature",
+            "wind_speed",
+            "precipitation",
+            "relative_humidity",
+            "snow_depth",
+            "station_level_pressure"
+        ]
+
+        df_preprocessed = df[cols].copy()        
+        
+        print("*" * 60)         
+        
+        # ------------------------------------------------------------------
         # -------------------- Convert datetime columns --------------------        
         print("\n\t\t --- Convert data ---\n")
         datetime_columns = ["DATE"]
         df_preprocessed = CleanData().convert_2_datetime_list(
-            df=df,
+            df=df_preprocessed,
             columns=datetime_columns
         )
         print(f"\nColumns {datetime_columns} converted to datetime")
@@ -77,7 +99,6 @@ class WeatherAcq:
         # ------------------------------------------------------------------
         # -------------------- Check the rows -------------------- 
         print("\n\t\t --- Check the rows ---\n")    
-        n_ref = df_preprocessed["STATION"].count()
         
         # Recorrer todas las columnas
         for col in df_preprocessed.columns:

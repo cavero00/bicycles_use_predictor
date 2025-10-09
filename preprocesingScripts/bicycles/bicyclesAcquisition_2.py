@@ -51,6 +51,11 @@ class BicyclesAcq:
         # Unir todos los DataFrame limpios en uno solo
         df_result = pd.concat(dfs_limpios, ignore_index=True)
         
+        print("*-"*30)
+        
+        # ------------------------------------------------------------------
+        # -------------------- Analisys join data --------------------          
+        
         # Se obtienen los valores unicos del df para las columnas indicadas
         print("\n\t\t --- Obtain unique values ---\n")
         unique_values = self.obtain_unique_values_list(
@@ -64,6 +69,18 @@ class BicyclesAcq:
         print(f"Unique value for \"member_casual\": {self.data.member_casual}")
         
         print("*" * 60) 
+        
+        # ------------------------------------------------------------------
+        # -------------------- Count string values --------------------
+        print("\n\t\t --- Count string values ---\n")        
+        print(f"Count for ride_id registers: {df_result['ride_id'].count()}")
+        print(f"Count for rideable_type registers: {df_result['rideable_type'].count()}")
+        print(f"Count for start_station_id registers: {df_result['start_station_id'].count()}")
+        print(f"Count for end_station_id registers: {df_result['end_station_id'].count()}")   
+        print(f"Count for member_casual registers: {df_result['member_casual'].count()}")   
+        
+        print("*" * 60)        
+        
         print("\n\t\t --- Grouping, cleaning and analisys data FINISHED ---\n")         
         
         print("\n\t\t --- Changes data types ---\n")
@@ -81,9 +98,9 @@ class BicyclesAcq:
         print(df_result.dtypes)
         print("\n>> Dataframe describe")
         print(df_result.describe())
-        print(">> Primeros 10 valores")
+        print("\n>> Primeros 10 valores")
         print(df_result.head(10))
-        print(">> Shape del dataframe")
+        print("\n>> Shape del dataframe")
         print(df_result.shape)
         
         self.data.df_data = df_result
@@ -95,7 +112,7 @@ class BicyclesAcq:
         # -------------------- Basic info --------------------      
         print("\n\t\t --- Basic info ---\n")
         print(df.dtypes)
-        print(df.describe())  
+        print(df.describe())       
 
         print("*" * 60)
 
@@ -112,6 +129,24 @@ class BicyclesAcq:
         print("*" * 60)
         
         # ------------------------------------------------------------------
+        # -------------------- Delete columns --------------------
+        print("\n\t\t --- Delete columns ---\n")        
+
+        cols = [
+            "ride_id",
+            "rideable_type",
+            "started_at",
+            "ended_at",
+            "start_station_id",
+            "end_station_id",
+            "member_casual"
+        ]
+
+        df_preprocessed = df_preprocessed[cols].copy()        
+        
+        print("*" * 60)         
+        
+        # ------------------------------------------------------------------
         # -------------------- Create new columns --------------------
         print("\n\t\t --- Create new columns ---\n")        
         df_preprocessed["year"] = df_preprocessed["started_at"].dt.year
@@ -120,22 +155,6 @@ class BicyclesAcq:
         df_preprocessed["time_hms_ms"] = df_preprocessed["started_at"].dt.strftime("%H:%M:%S.%f").str[:-3]
         
         print("*" * 60)
-
-        # # ------------------------------------------------------------------
-        # # -------------------- NULL data analysis by year --------------------
-        # print("\n\t\t --- NULL data analysis by year ---\n")
-
-        # # Calcular % de nulos por columna y por año
-        # null_percent_by_year = (
-        #     df_preprocessed
-        #     .groupby("year", group_keys=False)
-        #     .apply(lambda g: g.isnull().sum() / len(g) * 100, include_groups=False)
-        # )
-
-        # print("\nNull percent value by year (sin eliminar datos):")
-        # print(null_percent_by_year)
-
-        # print("*" * 60)
 
         # ------------------------------------------------------------------
         # -------------------- NULL data delete --------------------
@@ -146,7 +165,7 @@ class BicyclesAcq:
 
         df_without_null = CleanData().delete_null_list(
             df=df_preprocessed,
-            columns=["started_at", "ended_at", "start_station_name", "start_station_id", "end_station_name", "end_station_id"]
+            columns=["started_at", "ended_at", "start_station_id", "end_station_id"]
         )
 
         null_percent_after = round(df_without_null.isnull().sum() / len(df_without_null) * 100, 2)
@@ -187,7 +206,21 @@ class BicyclesAcq:
         df_preprocessed["event"] = df_preprocessed["started_at"].apply(
             lambda d: self.event_detect(d, events_set)
         )
-        print("*" * 60)        
+        print("*" * 60)    
+        
+        # ------------------------------------------------------------------
+        # -------------------- Unique values --------------------
+        print("\n\t\t --- Unique values ---\n")
+       
+        result = self.obtain_unique_values_list(
+            df=df_preprocessed,
+            columns=["rideable_type", "member_casual"]
+        )
+        
+        print("Unique Values:")
+        print(result)
+
+        print("*" * 60)              
 
         self.data.df_data = df_preprocessed
         
