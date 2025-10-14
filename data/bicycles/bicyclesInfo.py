@@ -29,9 +29,9 @@ class Data:
         
         # No hubo NASCAR
         
-        pd.Timestamp("2022-09-08"), # Taste of Chicago
-        pd.Timestamp("2022-09-09"), # Taste of Chicago
-        pd.Timestamp("2022-09-10"), # Taste of Chicago         
+        pd.Timestamp("2022-07-08"), # Taste of Chicago
+        pd.Timestamp("2022-07-09"), # Taste of Chicago
+        pd.Timestamp("2022-07-10"), # Taste of Chicago         
         
         pd.Timestamp("2022-07-15"), # Festival musica (Pitchfork Music) (cancelado en 2025)
         pd.Timestamp("2022-07-16"), # Festival musica (Pitchfork Music) (cancelado en 2025)        
