@@ -13,3 +13,6 @@ Modelo complejo con embeddings de entrada y salida
 
 ## Modelo_5
 Modelo simple con embeddings de entrada y sin ser entrenado con la estación fin
+
+## Modelo_6
+Modelo de arbol de regresion
