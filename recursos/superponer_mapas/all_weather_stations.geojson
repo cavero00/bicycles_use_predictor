@@ -1,0 +1,93 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {"name": "CHICAGO OHARE INTL AP"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.93164, 41.96017]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "CHICAGO PALWAUKEE AP"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.90479, 42.12076]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "CHICAGO MIDWAY AP"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.75514, 41.78412]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "CHICAGO MIDWAY AP 3SW"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.773, 41.738]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "USW00004"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.528, 41.540]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "USW00004807"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.4167, 41.6167]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "USL000CMTI2"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.54, 41.73]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "USL000JAKI2"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.577, 41.786]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "USL000CNII2"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.609, 41.856]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "USL000OKSI2"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.624, 41.912]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "USL000CHII2"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.496, 41.998]
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+# config/inference.yaml
+paths:
+  scalers: "data/scalers/"
+  encoders: "data/encoders/"
+
+model:
+  model_1_path: "models/model_7_6_dayOfYear.keras"
+  model_2_path: "models/model_7_9_dayOfYear.keras"
+  num_groups_extended_model_1: 4
+  threshold_model_1: 0.23296134
+  max_class_model_2: 5

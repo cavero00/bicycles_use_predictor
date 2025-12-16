@@ -1,0 +1,29 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {"name": "CHICAGO OHARE INTL AP"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.93164, 41.96017]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "CHICAGO MIDWAY AP"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.75514, 41.78412]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "GARY"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.4167, 41.6167]
+      }
+    }
+  ]
+}
