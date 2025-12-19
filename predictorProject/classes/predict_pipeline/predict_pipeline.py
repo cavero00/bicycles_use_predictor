@@ -81,7 +81,7 @@ class Model_predictor:
         
         # Se redondea al entero mas cercano
         y_pred_int = np.rint(pred_2).astype(int)  # redondear al entero más cercano
-        y_pred_int = np.clip(y_pred_int, 2, self.max_class_model_2)   # asegurar que esté entre 2 y 5
+        y_pred_int = np.clip(y_pred_int, 2, self.max_class_model_2)   # asegurar que esté entre 2 y el maximo
         
         print(f"{self.character_pre_log}[OK] Prediccion del segundo modelo completada")
         print(f"{self.character_pre_log}Se ha predicho {y_pred_int.item()} viajes")

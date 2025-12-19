@@ -106,7 +106,7 @@ class Preprocessed_data:
     def add_timme_variables(self):
         print(f"{self.character_pre_log}\t> Añadiendo las columnas relacionadas con la fecha...")
         self.input_data["time_hms_ms"] = self.input_data["started_at"].dt.time.apply(lambda t: pd.Timedelta(hours=t.hour, minutes=t.minute, seconds=t.second, microseconds=t.microsecond))
-        self.input_data["month"] = self.input_data["started_at"].dt.month
+        self.input_data["month"] = self.input_data["started_at"].dt.month - 1 # Referencia en 0
         self.input_data["year"] = self.input_data["started_at"].dt.year
         self.input_data["hour_float"] = self.input_data["time_hms_ms"].dt.total_seconds() / 3600
         self.input_data['dayofyear'] = self.input_data['started_at'].dt.dayofyear

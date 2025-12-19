@@ -1,4 +1,5 @@
 # pipeline/inference_pipeline.py
+import time
 import yaml
 import pandas as pd
 import uuid
@@ -34,10 +35,38 @@ class InferencePipeline:
     def run(self, raw_data: pd.DataFrame):
         run_id = str(uuid.uuid4())  # Genera un ID único por ejecución
 
-        self.logger.info(f"[START] Pipeline completa run_id={run_id}")
+        self.logger.info(f"[START]    ---  NEW execution--- run_id={run_id}")
+        self.logger.info(f"[START] START Pipeline with run_id={run_id}")
+        t0 = time.perf_counter()
+        
+        #      --- Preprocess ---
+        t_pre = time.perf_counter()
         data = self.preprocess.transform(raw_data)
+        t_pre = time.perf_counter() - t_pre
+        self.logger.debug(f"[TIMING] Preprocess: {t_pre:.4f}s run_id={run_id}")
+        
+        #      --- Normalization ---
+        t_norm = time.perf_counter()
         data = self.normalize.transform(data)
+        t_norm = time.perf_counter() - t_norm
+        self.logger.debug(f"[TIMING] Normalize: {t_norm:.4f}s run_id={run_id}")
+        
+        #      --- Prediction ---
+        t_pred = time.perf_counter()
         prediction = self.predict.predict(data, run_id=run_id)
-        self.logger.info(f"[END] Pipeline completa run_id={run_id}, prediction={prediction}")
+        t_pred = time.perf_counter() - t_pred
+        self.logger.debug(f"[TIMING] Predict: {t_pred:.4f}s run_id={run_id}")
+        
+        total_time = time.perf_counter() - t0
+        
+        self.logger.info(
+            f"[END] Pipeline run_id={run_id} | "
+            f"total time = {total_time:.4f}s | "
+            f"preprocess time = {t_pre:.4f}s | "
+            f"normalize time = {t_norm:.4f}s | "
+            f"predict time = {t_pred:.4f}s"
+        )
+        
+        self.logger.info(f"[START]    ---  END execution--- run_id={run_id}")
 
         return prediction

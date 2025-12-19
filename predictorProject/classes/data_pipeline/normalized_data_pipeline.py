@@ -247,13 +247,7 @@ class Normalized_data:
                 ]
             ].copy()  
         
-        # Se obtiene la hora, el mes y el año
-        # df_data["time_hms_ms"] = df_data["started_at"].dt.time.apply(lambda t: pd.Timedelta(hours=t.hour, minutes=t.minute, seconds=t.second, microseconds=t.microsecond))
-        # df_data["month"] = df_data["started_at"].dt.month
-        # df_data["year"] = df_data["started_at"].dt.year
-        
         # Se convierte la hora a variable ciclica
-        # df_data["hour_float"] = df_data["time_hms_ms"].dt.total_seconds() / 3600
         df_data["hour_sin"] = np.sin(2 * np.pi * df_data["hour_float"] / 24)
         df_data["hour_cos"] = np.cos(2 * np.pi * df_data["hour_float"] / 24)
         
@@ -262,7 +256,6 @@ class Normalized_data:
         df_data["month_cos"] = np.cos(2 * np.pi * df_data["month"] / 12) 
         
         # Se convierte el día del año a variable ciclica
-        # df_data['dayofyear'] = df_data['started_at'].dt.dayofyear
         df_data['doy_sin'] = np.sin(2 * np.pi * df_data['dayofyear'] / 365)
         df_data['doy_cos'] = np.cos(2 * np.pi * df_data['dayofyear'] / 365)           
         
