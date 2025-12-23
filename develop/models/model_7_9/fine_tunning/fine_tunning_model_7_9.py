@@ -190,8 +190,8 @@ def build_model(hp):
 tuner = kt.BayesianOptimization(
     build_model,
     objective="val_mae",
-    max_trials=15,          # normalmente puedes bajar a 15–20
-    executions_per_trial=1,
+    max_trials=15,
+    executions_per_trial=2,
     directory="kt_tuning_with_weights",
     project_name="stations_context_bayes"
 )
@@ -202,12 +202,12 @@ callbacks = [
         patience=5,
         restore_best_weights=True
     ),
-    #tf.keras.callbacks.ReduceLROnPlateau(
-    #    monitor="val_loss",
-    #    factor=0.5,
-    #    patience=3,
-    #    min_lr=1e-6
-    #)
+    tf.keras.callbacks.ReduceLROnPlateau(
+        monitor="val_loss",
+        factor=0.5,
+        patience=3,
+        min_lr=1e-6
+    )
 ]
 
 #Se buscan las mejores variables
@@ -271,7 +271,7 @@ import matplotlib.pyplot as plt
 def show_history(history, model_name: str):
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 10))  # 2 filas, 1 columna
 
-    # Pérdida (loss)
+    # Pï¿½rdida (loss)
     ax1.plot(history.history['loss'],     label='Training Loss',  color='green')
     ax1.plot(history.history['val_loss'], label='Validation Loss', color='blue')
     ax1.set_title('Training vs Validation Loss')
@@ -279,7 +279,7 @@ def show_history(history, model_name: str):
     ax1.set_ylabel('Loss')
     ax1.legend()
 
-    # Precisión (accuracy)
+    # Precisiï¿½n (accuracy)
     ax2.plot(history.history['mae'],     label='Training MAE',  color='green')
     ax2.plot(history.history['val_mae'], label='Validation MAE', color='blue')
     ax2.set_title('Training vs Validation MAE')
@@ -287,10 +287,10 @@ def show_history(history, model_name: str):
     ax2.set_ylabel('MAE')
     ax2.legend()
 
-    # Título global
+    # Tï¿½tulo global
     fig.suptitle(model_name, fontsize=16)
 
-    # Ajustar márgenes
+    # Ajustar mï¿½rgenes
     plt.tight_layout(rect=[0, 0, 1, 0.95])
     plt.show()
     
@@ -324,8 +324,8 @@ y_pred_probs = best_model.predict({
 
 import numpy as np
 
-y_pred_int = np.rint(y_pred_probs).astype(int)  # redondear al entero más cercano
-y_pred_int = np.clip(y_pred_int, 2, 5)   # asegurar que esté entre 2 y 5
+y_pred_int = np.rint(y_pred_probs).astype(int)  # redondear al entero mï¿½s cercano
+y_pred_int = np.clip(y_pred_int, 2, 5)   # asegurar que estï¿½ entre 2 y 5
 
 from sklearn.metrics import mean_absolute_error, mean_squared_error, accuracy_score, confusion_matrix
 import seaborn as sns
@@ -345,7 +345,7 @@ print(f"MAE: {mae:.4f}, RMSE: {rmse:.4f}")
 acc = accuracy_score(y, y_pred_int)
 print(f"Exact match accuracy: {acc*100:.2f}%")
 
-# Matriz de confusión
+# Matriz de confusiï¿½n
 cm = confusion_matrix(y, y_pred_int)
 plt.figure(figsize=(6,5))
 sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')

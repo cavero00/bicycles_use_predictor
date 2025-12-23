@@ -390,7 +390,7 @@ import matplotlib.pyplot as plt
 def show_history(history, model_name: str):
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 10))  # 2 filas, 1 columna
 
-    # Pérdida (loss)
+    # Perdida (loss)
     ax1.plot(history.history['loss'],     label='Training Loss',  color='green')
     ax1.plot(history.history['val_loss'], label='Validation Loss', color='blue')
     ax1.set_title('Loss evolution')
@@ -398,7 +398,7 @@ def show_history(history, model_name: str):
     ax1.set_ylabel('Loss')
     ax1.legend()
 
-    # Precisión (accuracy)
+    # Precision (accuracy)
     ax2.plot(history.history['accuracy'],     label='Training Accuracy',  color='green')
     ax2.plot(history.history['val_accuracy'], label='Validation Accuracy', color='blue')
     ax2.set_title('Accuracy evolution')
@@ -406,10 +406,10 @@ def show_history(history, model_name: str):
     ax2.set_ylabel('Accuracy')
     ax2.legend()
 
-    # Título global
+    # Titulo global
     fig.suptitle(model_name, fontsize=16)
 
-    # Ajustar márgenes
+    # Ajustar margenes
     plt.tight_layout(rect=[0, 0, 1, 0.95])
     plt.show()
     
@@ -458,7 +458,7 @@ print("Accuracy test:", acc)
 # Reporte detallado por clase
 print(classification_report(y_cls, y_pred_classes))
 
-# Matriz de confusión
+# Matriz de confusion
 cm = confusion_matrix(y_cls, y_pred_classes)
 print(cm)
 
@@ -488,7 +488,7 @@ print("Accuracy test:", acc)
 # Reporte detallado por clase
 print(classification_report(y_cls_real, y_pred_real))
 
-# Matriz de confusión
+# Matriz de confusin
 cm = confusion_matrix(y_cls_real, y_pred_real)
 print(cm)
 
@@ -496,7 +496,7 @@ print(cm)
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Visualización con heatmap
+# Visualizacion con heatmap
 plt.figure(figsize=(8,6))
 sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', cbar=True,
             xticklabels=set(y_cls_real), yticklabels=set(y_cls_real))
