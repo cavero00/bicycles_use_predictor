@@ -29,10 +29,7 @@ class PredictStep:
         run_info = f"run_id={run_id}" if run_id else ""
         self.logger.info(f"[START] Start prediction {run_info}")
 
-        pred_2 = self.predictor.predict(data)
-        y_pred_int = np.rint(pred_2).astype(int)
-        y_pred_int = np.clip(y_pred_int, 2, self.predictor.max_class_model_2)
-        y_pred_int = y_pred_int.item()
+        pred = self.predictor.predict(data)
 
-        self.logger.info(f"[OK] Prediction completed {run_info}: {y_pred_int} trips")
-        return y_pred_int
+        self.logger.info(f"[OK] Prediction completed {run_info}: {pred} trips")
+        return pred
